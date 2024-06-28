@@ -1,0 +1,6 @@
+torch
+transformers
+Django
+django-tailwind
+sentencepiece
+sacremoses
