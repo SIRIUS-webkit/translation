@@ -11,7 +11,7 @@ pip install -r requirements.txt
 To run tailwind, need to download [node.js](https://nodejs.org/en) first, after that changed the npm dir under setting.py file. To check npm path run
 
 ```python
-where pip
+where npm
 ```
 
 and copy the value and changed under setting.py
