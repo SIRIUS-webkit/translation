@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static tailwind_tags %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% tailwind_css %}
+    <title>Home Page</title>
+  </head>
+  <body>
+    <nav class="bg-gray-800 p-4">
+      <div class="max-w-[1220px] mx-auto flex justify-between items-center">
+        <a href="#" class="text-white text-xl font-bold">EN-JP</a>
+        <div class="hidden md:flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-white">Home</a>
+          <a href="#" class="text-gray-300 hover:text-white">About</a>
+          <a href="#" class="text-gray-300 hover:text-white">Services</a>
+          <a href="#" class="text-gray-300 hover:text-white">Contact</a>
+        </div>
+        <div class="md:hidden">
+          <button
+            id="menuButton"
+            class="text-gray-300 hover:text-white focus:outline-none"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobileMenu" class="hidden md:hidden">
+        <a href="#" class="block text-gray-300 hover:text-white px-2 py-1"
+          >Home</a
+        >
+        <a href="#" class="block text-gray-300 hover:text-white px-2 py-1"
+          >About</a
+        >
+        <a href="#" class="block text-gray-300 hover:text-white px-2 py-1"
+          >Services</a
+        >
+        <a href="#" class="block text-gray-300 hover:text-white px-2 py-1"
+          >Contact</a
+        >
+      </div>
+    </nav>
+    <section class="bg-white py-20">
+      <div
+        class="max-w-[1120px] mx-auto flex space-x-5 flex-col md:flex-row items-center"
+      >
+        <div class="flex flex-col items-start md:w-1/2 md:pr-8">
+          <h1
+            class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4"
+          >
+            Briding Languages,
+          </h1>
+          <h1
+            class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4"
+          >
+            Connecting Words
+          </h1>
+          <p class="text-gray-600 mb-6">
+            Our platform provides a comprehensive solution for managing and
+            optimizing your business transactions. Secure, efficient, and
+            user-friendly.
+          </p>
+          <a
+            href="#"
+            class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600"
+          >
+            Get Started
+          </a>
+        </div>
+        <div class="mt-10 md:mt-0 md:w-1/2">
+          <img
+            src="https://img.freepik.com/free-vector/translator-concept-illustration_114360-6614.jpg?t=st=1719560310~exp=1719563910~hmac=16b29964e5133f17602ae6719612d8079f20710b68eab2177503ab7769ef7ea1&w=740"
+            alt="Illustration"
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+    </section>
+    <div class="py-20 max-w-[1100px] mx-auto">
+      <div>
+        <form method="POST" action="">
+          {% csrf_token %}
+          <div class="mb-4">
+            <label for="text" class="block text-gray-700 font-bold"
+              >Text to Translate:</label
+            >
+            <input
+              type="text"
+              id="text"
+              name="text"
+              class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div class="flex justify-end">
+            <button
+              type="submit"
+              class="bg-blue-500 text-white px-12 py-3 rounded-md hover:bg-blue-600"
+            >
+              Translate
+            </button>
+          </div>
+        </form>
+      </div>
+      {% if translator_ans %}
+      <div class="py-8">
+        <p class="bg-green-200 py-3 px-4">{{translator_ans}}</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
